@@ -4,7 +4,7 @@
 Binovo 
 ======
 
-This a testing repository which contains utilities for Odoo management.
+This a testing repository.
 
 Credits
 =======
