@@ -10,7 +10,7 @@
 #
 # Author: Luis J. Salvatierra
 import subprocess
-from subprocess import STDOUT
+from subprocess import STDOUT, CalledProcessError
 import git
 import os
 import argparse
@@ -94,6 +94,8 @@ if __name__ == '__main__':
             exit(1)
         else:
             print('Key "%s" not recognised.' % key)
-
+    except CalledProcessError, cpe:
+        print(cpe.output)
+        subprocess.check_output("git cherry-pick --abort", cwd=repo_path, shell=True, stderr=STDOUT)
     except Exception, e:
         print(e.message)
